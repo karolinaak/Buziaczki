@@ -17,12 +17,8 @@ def rysowanie_planszy(p):
     print (w5)
     print (w3)
 
-rysowanie_planszy(p)
-
 def komunikat_bledna_pozycja ():
   print ("Bledna pozycja, sprobuj jeszcze raz, good luck...")
-
-# to kod do imienia gracza
 
 def pobierz_imie_gracza1():
     imie = input("podaj imie gracza1 grajacego X...")
@@ -31,8 +27,6 @@ def pobierz_imie_gracza1():
 def pobierz_imie_gracza2():
     imie = input("podaj imie gracza2 grajacego O...")
     return imie
-
-# to kod do wypelnij pole gracza
 
 def zamien_int_na_x_y(pozycja):
     pozycje_planszy = {
@@ -56,53 +50,67 @@ def pobierz_pozycje_gracza2():
     pozycja_gracza2 = input("Graczu2 gdyie stawiasz O?...")
     return zamien_int_na_x_y(pozycja_gracza2)
 
-#print(pobierz_imie_gracza1())
-#print(pobierz_imie_gracza2())
-print(pobierz_pozycje_gracza1())
-print(pobierz_pozycje_gracza2())
-plansza = [
-    ['o', 'x', 'o'],
-    ['x', 'o', 'x'],
-    ['x', 'o', 'o'],
-]
-
-
 def czy_dozwolony_ruch (x,y):
     if plansza[x][y]==" ":
         return True
     else:
         return False 
-print(czy_dozwolony_ruch(1,1))
 
-
-x=0
-y=0
 def czy_koniec_gry_zwyciestwo (x,y):
-
-# w lini te same znaki
-
+    # w lini te same znaki
     if plansza [x][y] == plansza [x][y+1] and plansza [x][y] == plansza [x][y+2]:
         print('Bravoooo')
         return True
     else:
         print('grajdalej')
         return False 
-czy_koniec_gry_zwyciestwo (x,y)
 
-# koniec kiedy wszystkie polaza zajete
 def czy_koniec_gry_patt (x,y):
     if plansza[x][y] != " " and plansza [x][y+1] != " " and plansza [x][y+2] != " " and plansza[x+1][y] != " " and plansza [x+1][y+1] != " " and plansza [x+1][y+2] != " " and plansza[x+2][y] != " " and \
        plansza [x+2][y+1] != " " and plansza [x+2][y+2] != " ":
         print("koniec gry")
         return True
     else:
-        return False
-        
-czy_koniec_gry_patt (x,y)   
-
+        return False 
 
 def wypelnij_pole_gracz1(x, y):
     plansza[x][y] = 'X'
 
 def wypelnij_pole_gracz2(x ,y):
     plansza[x][y] = 'O'
+
+def czy_koniec_gry():
+    czy_koniec_gry_patt()
+    czy_koniec_gry_zwyciestwo()
+
+def main():
+    pobierz_imie_gracza1()
+    pobierz_imie_gracza2()
+    rysowanie_planszy(p)
+    print(pobierz_pozycje_gracza1())
+    # czy_dozwolony_ruch()
+    # czy_dozwolony_ruch(pobierz_pozycje_gracza2())
+    czy_koniec_gry()
+
+#GRAMY!!!!11111jeden :)
+main()
+
+
+# rysowanie_planszy(p)
+
+
+# x=0
+# y=0
+# czy_koniec_gry_zwyciestwo (x,y)
+
+# czy_koniec_gry_patt (x,y)  
+# #print(pobierz_imie_gracza1())
+# #print(pobierz_imie_gracza2())
+# print(pobierz_pozycje_gracza1())
+# print(pobierz_pozycje_gracza2())
+# plansza = [
+#     ['o', 'x', 'o'],
+#     ['x', 'o', 'x'],
+#     ['x', 'o', 'o'],
+# ]
+# print(czy_dozwolony_ruch(1,1))
