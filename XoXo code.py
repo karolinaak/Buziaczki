@@ -99,3 +99,10 @@ def czy_koniec_gry_patt (x,y):
         return False
         
 czy_koniec_gry_patt (x,y)   
+
+
+def wypelnij_pole_gracz1(x, y):
+    plansza[x][y] = 'X'
+
+def wypelnij_pole_gracz2(x ,y):
+    plansza[x][y] = 'O'
