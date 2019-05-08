@@ -1,2 +1,0 @@
-# Buziaczki
-Game XoXo
