@@ -1,0 +1,39 @@
+plansza = [
+    ['o', 'x', 'o'],
+    ['x', 'o', 'x'],
+    ['x', 'o', 'o'],
+]
+
+
+def czy_dozwolony_ruch (x,y):
+    if plansza[x][y]==" ":
+        return True
+    else:
+        return False 
+print(czy_dozwolony_ruch(1,1))
+
+
+x=0
+y=0
+def czy_koniec_gry_zwyciestwo (x,y):
+
+# w lini te same znaki
+
+    if plansza [x][y] == plansza [x][y+1] and plansza [x][y] == plansza [x][y+2]:
+        print('Bravoooo')
+        return True
+    else:
+        print('grajdalej')
+        return False 
+czy_koniec_gry_zwyciestwo (x,y)
+
+# koniec kiedy wszystkie polaza zajete
+def czy_koniec_gry_patt (x,y):
+    if plansza[x][y] != " " and plansza [x][y+1] != " " and plansza [x][y+2] != " " and plansza[x+1][y] != " " and plansza [x+1][y+1] != " " and plansza [x+1][y+2] != " " and plansza[x+2][y] != " " and \
+       plansza [x+2][y+1] != " " and plansza [x+2][y+2] != " ":
+        print("koniec gry")
+        return True
+    else:
+        return False
+        
+czy_koniec_gry_patt (x,y)   
