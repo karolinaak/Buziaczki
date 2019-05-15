@@ -50,8 +50,6 @@ def get_player_position2():
     player_position2 = input("Player 2 - where do you want to put O:")
     return change_int_to_x_y(player_position2)
 
-#print(pobierz_imie_gracza1())
-#print(pobierz_imie_gracza2())
 print(get_player_position1())
 print(get_player_position2())
 
