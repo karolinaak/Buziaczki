@@ -52,16 +52,20 @@ def get_player_position2():
 
 #print(pobierz_imie_gracza1())
 #print(pobierz_imie_gracza2())
-print(pobierz_pozycje_gracza1())
-print(pobierz_pozycje_gracza2())
+print(get_player_position1())
+print(get_player_position2())
+
+
 Board = [
     ['o', 'x', 'o'],
     ['x', 'o', 'x'],
     ['x', 'o', 'o'],
-def Wrong_move_patt (x,y): #
-    if Board [x][y] != " " and Board [x][y+1] != " " and Board [x][y+2] != " " and Board[x+1][y] != " " and Board [x+1][y+1] != " " and Board [x+1][y+2] != " " and Board[x+2][y] != " " and board [x+2][y+1] != " " and Board [x+2][y+2] != " ":
+]
+def Wrong_move_patt (x,y):
+    if Board [x][y] != " " and Board [x][y+1] != " " and Board [x][y+2] != " " and Board[x+1][y] != " " and Board [x+1][y+1] != " " and Board [x+1][y+2] != " " and Board[x+2][y] != " " and Board [x+2][y+1] != " " and Board [x+2][y+2] != " " :
+        pass
 def Wrong_move (x,y):
-    if board[x][y]==" ":
+    if Board[x][y]==" ":
         return True
     else:
         return False #
