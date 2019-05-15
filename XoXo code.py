@@ -21,15 +21,15 @@ def komunikat_bledna_pozycja ():
   print ("Bledna pozycja, sprobuj jeszcze raz, good luck...")
 
 def get_player_name1():
-    imie = input("podaj imie gracza1 grajacego X...")
-    return imie
+    name = input("Player 1 What's your name (you play X):")
+    return name
 
 def get_player_name2():
-    imie = input("podaj imie gracza2 grajacego O...")
-    return imie
+    name = input("Player 1 What's your name (you play O):")
+    return name
 
-def zamien_int_na_x_y(pozycja):
-    pozycje_planszy = {
+def change_int_to_x_y(positions):
+    board_positions = {
         1: [0,0],
         2: [0,1],
         3: [0,2],
@@ -40,15 +40,15 @@ def zamien_int_na_x_y(pozycja):
         8: [2,1],
         9: [2,2],
     }   
-    return pozycje_planszy.get(int(pozycja), "nothing")
+    return board_positions.get(int(positions), "nothing")
 
 def get_player_position1():
-    pozycja_gracza1 = input("Graczu1 gdyie stawiasz X?...")
-    return zamien_int_na_x_y(pozycja_gracza1)
+    player_position1 = input("Player 1 - where do you want to put X:")
+    return change_int_to_x_y(player_position1)
 
 def get_player_position2():
-    pozycja_gracza2 = input("Graczu2 gdyie stawiasz O?...")
-    return zamien_int_na_x_y(pozycja_gracza2)
+    player_position2 = input("Player 2 - where do you want to put O:")
+    return change_int_to_x_y(player_position2)
 
 def czy_dozwolony_ruch (x,y):
     if plansza[x][y]==" ":
