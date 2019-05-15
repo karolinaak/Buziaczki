@@ -61,16 +61,13 @@ Board = [
     ['x', 'o', 'x'],
     ['x', 'o', 'o'],
 ]
-def Wrong_move_patt (x,y):
-    if Board [x][y] != " " and Board [x][y+1] != " " and Board [x][y+2] != " " and Board[x+1][y] != " " and Board [x+1][y+1] != " " and Board [x+1][y+2] != " " and Board[x+2][y] != " " and Board [x+2][y+1] != " " and Board [x+2][y+2] != " " :
-        pass
-def Wrong_move (x,y):
+
+def Is_it_good_move (x,y):
     if Board[x][y]==" ":
         return True
     else:
-        return False #
-print(Wrong_move(1,1))
-
+        return False 
+print(Is_it_good_move(1,1))
 
 x=0
 y=0
@@ -96,3 +93,26 @@ def Patt (x,y):
         return False
         
 Patt (x,y)
+
+def fillout_p1(x, y):
+    Board[x][y] = 'X'
+
+def Fillout_p2(x ,y):
+    Board[x][y] = 'O'
+
+def Is_it_end():
+    Patt (x,y)
+    end_of_the_game_WIN (x,y)
+
+def main():
+    get_player_name1()
+    get_player_name2()
+    draw_the_board(p)
+    print(get_player_position1())
+    # Is it end?
+    Is_it_good_move()
+    # czy_dozwolony_ruch(pobierz_pozycje_gracza2())
+    Is_it_end()
+
+#GRAMY!!!!11111jeden :)
+main()
