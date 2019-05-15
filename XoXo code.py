@@ -43,12 +43,22 @@ def change_int_to_x_y(positions):
     return board_positions.get(int(positions), "nothing")
 
 def get_player_position1():
-    player_position1 = input("Player 1 - where do you want to put X:")
-    return change_int_to_x_y(player_position1)
+    correct_position = True
+    while correct_position:
+        player_position1 = input("Player 1 - where do you want to put X:")
+        if not Is_it_good_move(player_position1):
+            correct_position = False
+            continue
+        return change_int_to_x_y(player_position1)
 
 def get_player_position2():
-    player_position2 = input("Player 2 - where do you want to put O:")
-    return change_int_to_x_y(player_position2)
+    correct_position = True
+    while correct_position:
+        player_position2 = input("Player 2 - where do you want to put X:")
+        if not Is_it_good_move(player_position2):
+            correct_position = False
+            continue
+        return change_int_to_x_y(player_position2)
 
 print(get_player_position1())
 print(get_player_position2())
@@ -90,7 +100,6 @@ def Patt (x,y):
     else:
         return False
         
-Patt (x,y)
 
 def fillout_p1(x, y):
     Board[x][y] = 'X'
@@ -102,15 +111,34 @@ def Is_it_end():
     Patt (x,y)
     end_of_the_game_WIN (x,y)
 
-def main():
+def setup():
     get_player_name1()
     get_player_name2()
     draw_the_board(p)
-    print(get_player_position1())
-    # Is it end?
-    Is_it_good_move()
-    # czy_dozwolony_ruch(pobierz_pozycje_gracza2())
-    Is_it_end()
 
-#GRAMY!!!!11111jeden :)
+def show_winner(player):
+    print("the winner is ", player)
+
+def main():
+    setup()
+    while True:
+        get_player_position1()
+
+        if Is_it_end():
+            show_winner("Player1")
+            break
+
+        get_player_position2()
+            
+        if Is_it_end():
+            show_winner("Player2")
+            break
+
+
+
+
+
+
+
+
 main()
