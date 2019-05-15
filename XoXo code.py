@@ -4,8 +4,7 @@ p = [
     ["" "","" "","" ""]
     ]
 
-def rysowanie_planszy(p):
- 
+def draw_the_board(p):
     w1 = p[0][0]+'|'+ p[0][1] +'|'+ p[0][2]
     w2 = p[1][0]+'|'+ p[1][1] +'|'+ p[1][2]
     w3 = p[2][0]+'|'+ p[2][1] +'|'+ p[2][2]
@@ -18,10 +17,8 @@ def rysowanie_planszy(p):
     print (w5)
     print (w3)
 
-rysowanie_planszy(p)
-
-def komunikat_bledna_pozycja ():
-  print ("Bledna pozycja, sprobuj jeszcze raz, good luck...")
+def msg_wrong_position ():
+    print ("Wrong position, try again, good luck...")
 
 def get_player_name1():
     name = input("Player 1 What's your name (you play X):")
