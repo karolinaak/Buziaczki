@@ -61,7 +61,7 @@ Board = [
     ['o', 'x', 'o'],
     ['x', 'o', 'x'],
     ['x', 'o', 'o'],
-def Wrong_move_patt (x,y):
+def Wrong_move_patt (x,y): #
     if Board [x][y] != " " and Board [x][y+1] != " " and Board [x][y+2] != " " and Board[x+1][y] != " " and Board [x+1][y+1] != " " and Board [x+1][y+2] != " " and Board[x+2][y] != " " and board [x+2][y+1] != " " and Board [x+2][y+2] != " ":
 def Wrong_move (x,y):
     if board[x][y]==" ":
