@@ -23,20 +23,16 @@ rysowanie_planszy(p)
 def komunikat_bledna_pozycja ():
   print ("Bledna pozycja, sprobuj jeszcze raz, good luck...")
 
-# to kod do imienia gracza
+def get_player_name1():
+    name = input("Player 1 What's your name (you play X):")
+    return name
 
-def pobierz_imie_gracza1():
-    imie = input("podaj imie gracza1 grajacego X...")
-    return imie
+def get_player_name2():
+    name = input("Player 1 What's your name (you play O):")
+    return name
 
-def pobierz_imie_gracza2():
-    imie = input("podaj imie gracza2 grajacego O...")
-    return imie
-
-# to kod do wypelnij pole gracza
-
-def zamien_int_na_x_y(pozycja):
-    pozycje_planszy = {
+def change_int_to_x_y(positions):
+    board_positions = {
         1: [0,0],
         2: [0,1],
         3: [0,2],
@@ -47,15 +43,15 @@ def zamien_int_na_x_y(pozycja):
         8: [2,1],
         9: [2,2],
     }   
-    return pozycje_planszy.get(int(pozycja), "nothing")
+    return board_positions.get(int(positions), "nothing")
 
-def pobierz_pozycje_gracza1():
-    pozycja_gracza1 = input("Graczu1 gdyie stawiasz X?...")
-    return zamien_int_na_x_y(pozycja_gracza1)
+def get_player_position1():
+    player_position1 = input("Player 1 - where do you want to put X:")
+    return change_int_to_x_y(player_position1)
 
-def pobierz_pozycje_gracza2():
-    pozycja_gracza2 = input("Graczu2 gdyie stawiasz O?...")
-    return zamien_int_na_x_y(pozycja_gracza2)
+def get_player_position2():
+    player_position2 = input("Player 2 - where do you want to put O:")
+    return change_int_to_x_y(player_position2)
 
 #print(pobierz_imie_gracza1())
 #print(pobierz_imie_gracza2())
@@ -71,17 +67,16 @@ def Wrong_move (x,y):
     if board[x][y]==" ":
         return True
     else:
-        return False 
+        return False #
 print(Wrong_move(1,1))
 
 
 x=0
 y=0
+# Win - Same elements in one line
+
 def end_of_the_game_WIN (x,y):
-
-# Same elements in one line 
-
-    if Board [x][y] == Board [x][y+1] and Board [x][y] == Board [x][y+2]:
+    if Board [x][y] == Board [x][y+1] and Board [x][y] == Board [x][y+2] or Board [x+1][y] == Board [x+1][y+1] and Board [x+1][y] == Board [x+1][y+2] or Board [x+2][y] == Board [x+2][y+1] and Board [x+2][y] == Board [x+2][y+2]:
         print('Bravoooo')
         return True
     else:
