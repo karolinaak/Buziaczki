@@ -20,11 +20,11 @@ def rysowanie_planszy(p):
 def komunikat_bledna_pozycja ():
   print ("Bledna pozycja, sprobuj jeszcze raz, good luck...")
 
-def pobierz_imie_gracza1():
+def get_player_name1():
     imie = input("podaj imie gracza1 grajacego X...")
     return imie
 
-def pobierz_imie_gracza2():
+def get_player_name2():
     imie = input("podaj imie gracza2 grajacego O...")
     return imie
 
@@ -42,11 +42,11 @@ def zamien_int_na_x_y(pozycja):
     }   
     return pozycje_planszy.get(int(pozycja), "nothing")
 
-def pobierz_pozycje_gracza1():
+def get_player_position1():
     pozycja_gracza1 = input("Graczu1 gdyie stawiasz X?...")
     return zamien_int_na_x_y(pozycja_gracza1)
 
-def pobierz_pozycje_gracza2():
+def get_player_position2():
     pozycja_gracza2 = input("Graczu2 gdyie stawiasz O?...")
     return zamien_int_na_x_y(pozycja_gracza2)
 
@@ -84,12 +84,12 @@ def czy_koniec_gry():
     czy_koniec_gry_zwyciestwo()
 
 def main():
-    pobierz_imie_gracza1()
-    pobierz_imie_gracza2()
+    get_player_name1()
+    get_player_name2()
     rysowanie_planszy(p)
-    print(pobierz_pozycje_gracza1())
+    print(get_player_position1())
     # czy_dozwolony_ruch()
-    # czy_dozwolony_ruch(pobierz_pozycje_gracza2())
+    # czy_dozwolony_ruch(get_player_position2())
     czy_koniec_gry()
 
 #GRAMY!!!!11111jeden :)
@@ -104,10 +104,10 @@ main()
 # czy_koniec_gry_zwyciestwo (x,y)
 
 # czy_koniec_gry_patt (x,y)  
-# #print(pobierz_imie_gracza1())
-# #print(pobierz_imie_gracza2())
-# print(pobierz_pozycje_gracza1())
-# print(pobierz_pozycje_gracza2())
+# #print(get_player_name1())
+# #print(get_player_name2())
+# print(get_player_position1())
+# print(get_player_position2())
 # plansza = [
 #     ['o', 'x', 'o'],
 #     ['x', 'o', 'x'],
