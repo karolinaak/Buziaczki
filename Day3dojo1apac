@@ -1,0 +1,35 @@
+
+# min max avg
+list_of_number =  [9,-7,11,7,4,17,28,6,-1,3,23,99,-78,1,1,1,1,1,1,11,1] 
+
+#avg_value = sum(list_of_number)/len(list_of_number)
+def d3_avg_value(somelist):
+    temp_var = 0
+    for x in somelist:
+        temp_var=int(temp_var) + x
+    return temp_var / len(list_of_number)
+
+#min_value = min(list_of_number)
+def d3_min_value(somelist):
+    min_found = somelist[0]
+    for elem in somelist:
+        if elem < min_found:
+            min_found = elem
+        else:
+            pass
+    return min_found
+
+#max_value = max(list_of_number)
+def d3_max_value(somelist):
+    max_found = somelist[0]
+    for elem in somelist:
+        if elem > max_found:
+            max_found = elem
+        else:
+            pass
+    return max_found
+
+
+print(d3_avg_value(list_of_number))
+print(d3_min_value(list_of_number))
+print(d3_max_value(list_of_number))
