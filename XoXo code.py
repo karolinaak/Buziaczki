@@ -17,8 +17,8 @@ def rysowanie_planszy(p):
     print (w5)
     print (w3)
 
-def komunikat_bledna_pozycja ():
-  print ("Bledna pozycja, sprobuj jeszcze raz, good luck...")
+def msg_wrong_position ():
+    print ("Wrong position, try again, good luck...")
 
 def get_player_name1():
     name = input("Player 1 What's your name (you play X):")
