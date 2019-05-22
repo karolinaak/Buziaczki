@@ -20,6 +20,15 @@ def connect_to_device(which_port='Launchpad Mini'):
 def translate_board_position():
   pass
 
+import time
+import rtmidi
+
+mo = rtmidi.MidiOut()
+for port_no in range(mo.get_port_count()):
+		port_name = mo.get_port_name(port_no)
+		print("MIDI out:", port_name)
+		if port_name.find('Launchpad Mini')>-1:
+			midi_port = mo.open_port(port_no)
 def draw_launchpad_board():
 	midi_port.send_message([0x90, 2, 27])
 	midi_port.send_message([0x90, 5, 27])
