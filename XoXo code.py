@@ -109,9 +109,9 @@ def Fillout_p2(x ,y):
 def Is_it_end():
     # TODO - add a flowchart / logic
     if Patt (x,y) or end_of_the_game_WIN (x,y):
-    return True
+        return True
     else:
-    return False
+        return False
 
 def setup():
     get_player_name1()
@@ -131,23 +131,27 @@ def test_drawing_board():
     p[1][1] = "X"
     draw_the_board(p)
 
-def test Is_it_end():
+def test_Is_it_end():
+    global p 
     p = [
         [" ", " ", " "],
         [" ", " ", " "],
         [" ", " ", " "]
     ]
-    print(Is_it_end ())
+
+    print("Test", Is_it_end ())
 
 
 def test():
     test_drawing_board()
+    test_Is_it_end()
 
     print(get_player_position1())
     print(get_player_position2())
     print(Is_it_good_move(1,1))
 
 def main():
+   
     test()
     exit()
 
