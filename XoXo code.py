@@ -4,6 +4,12 @@ p = [
     ["" "","" "","" ""]
     ]
 
+Board = [
+    ['o', 'x', 'o'],
+    ['x', 'o', 'x'],
+    ['x', 'o', 'o'],
+]
+
 def draw_the_board(p):
     w1 = p[0][0]+'|'+ p[0][1] +'|'+ p[0][2]
     w2 = p[1][0]+'|'+ p[1][1] +'|'+ p[1][2]
@@ -29,6 +35,7 @@ def get_player_name2():
     return name
 
 def change_int_to_x_y(positions):
+    # TODO: should not accept values other than 1-9
     board_positions = {
         1: [0,0],
         2: [0,1],
@@ -42,11 +49,19 @@ def change_int_to_x_y(positions):
     }   
     return board_positions.get(int(positions), "nothing")
 
+def Is_it_good_move (x, y):
+    if Board[x][y]==" ":
+        return True
+    else:
+        return False 
+
 def get_player_position1():
+    # TODO fix logic
     correct_position = True
     while correct_position:
         player_position1 = input("Player 1 - where do you want to put X:")
-        if not Is_it_good_move(player_position1):
+        x, y  = change_int_to_x_y(player_position1)
+        if not Is_it_good_move(x, y):
             correct_position = False
             continue
         return change_int_to_x_y(player_position1)
@@ -54,28 +69,12 @@ def get_player_position1():
 def get_player_position2():
     correct_position = True
     while correct_position:
-        player_position2 = input("Player 2 - where do you want to put X:")
-        if not Is_it_good_move(player_position2):
+        player_position2 = input("Player 2 - where do you want to put O:")
+        x, y  = change_int_to_x_y(player_position2)
+        if not Is_it_good_move(x, y):
             correct_position = False
             continue
         return change_int_to_x_y(player_position2)
-
-print(get_player_position1())
-print(get_player_position2())
-
-
-Board = [
-    ['o', 'x', 'o'],
-    ['x', 'o', 'x'],
-    ['x', 'o', 'o'],
-]
-
-def Is_it_good_move (x,y):
-    if Board[x][y]==" ":
-        return True
-    else:
-        return False 
-print(Is_it_good_move(1,1))
 
 x=0
 y=0
@@ -88,7 +87,6 @@ def end_of_the_game_WIN (x,y):
     else:
         print('Play')
         return False 
-end_of_the_game_WIN (x,y)
 
 # When Patt 
 
@@ -108,6 +106,7 @@ def Fillout_p2(x ,y):
     Board[x][y] = 'O'
 
 def Is_it_end():
+    # TODO - add a flowchart / logic
     Patt (x,y)
     end_of_the_game_WIN (x,y)
 
@@ -119,7 +118,28 @@ def setup():
 def show_winner(player):
     print("the winner is ", player)
 
+def test_drawing_board():
+    p = [
+        [" ", " ", " "],
+        [" ", " ", " "],
+        [" ", " ", " "]
+    ]
+    draw_the_board(p)
+    p[1][1] = "X"
+    draw_the_board(p)
+
+
+def test():
+    test_drawing_board()
+
+    print(get_player_position1())
+    print(get_player_position2())
+    print(Is_it_good_move(1,1))
+
 def main():
+    test()
+    exit()
+
     setup()
     while True:
         get_player_position1()
@@ -133,12 +153,6 @@ def main():
         if Is_it_end():
             show_winner("Player2")
             break
-
-
-
-
-
-
 
 
 main()
