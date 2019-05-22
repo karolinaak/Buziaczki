@@ -26,6 +26,7 @@ def connect_to_device():
                 midi_port = mo.open_port(port_no)
     while True:
         #x = input("X or O: <enter>")
+        #TODOnot finished
         zm = range(1,30)
         mindex = mindex+1
         color = zm[mindex]
