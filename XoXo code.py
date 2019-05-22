@@ -61,32 +61,49 @@ def get_player_position1():
     correct_position = True
     while correct_position:
         player_position1 = input("Player 1 - where do you want to put X:")
-        x, y  = change_int_to_x_y(player_position1)
-        if not Is_it_good_move(x, y):
-            correct_position = False
+        if player_position1.isdigit() and int(player_position1) in range(1,9):
+            x, y  = change_int_to_x_y(player_position1)
+            if not Is_it_good_move(x, y):
+                correct_position = True
+            break
+        else:
+            print("Wrong position. Try again")
             continue
-        return change_int_to_x_y(player_position1)
+    return change_int_to_x_y(player_position1)
 
 def get_player_position2():
     correct_position = True
     while correct_position:
         player_position2 = input("Player 2 - where do you want to put O:")
-        x, y  = change_int_to_x_y(player_position2)
-        if not Is_it_good_move(x, y):
-            correct_position = False
+        if player_position2.isdigit() and int(player_position2) in range(1,9):
+            x, y  = change_int_to_x_y(player_position2)
+            if not Is_it_good_move(x, y):
+                correct_position = True
+            break
+        else:
+            print("Wrong position. Try again")
             continue
-        return change_int_to_x_y(player_position2)
-
+    return change_int_to_x_y(player_position2)
 x=0
 y=0
 # Win - Same elements in one line
 
 def end_of_the_game_WIN (x,y):
-    if Board [x][y] == Board [x][y+1] and Board [x][y] == Board [x][y+2] or Board [x+1][y] == Board [x+1][y+1] and Board [x+1][y] == Board [x+1][y+2] or Board [x+2][y] == Board [x+2][y+1] and Board [x+2][y] == Board [x+2][y+2]:
+    if Board [x][y] == "x" and Board [x][y+1] == "x" and Board [x][y+2] == "x" \
+        or Board [x+1][y] == "x" and Board [x+1][y+1] == "x" and Board [x+1][y+2] == "x" \
+        or Board [x+2][y] == "x" and Board [x+2][y+1] == "x" and Board [x+2][y+2] == "x" \
+        or Board [x][y] == "x" and Board [x+1][y] == "x" and Board [x+2][y] == "x" \
+        or Board [x+1][y] == "x" and Board [x+1][y+1] == "x" and Board [x+1][y+2] == "x" \
+        or Board [x+2][y] == "x" and Board [x+2][y+1] == "x" and Board [x+2][y+2] == "x" \
+        or Board [x][y] == "o" and Board [x][y+1] == "o" and Board [x][y+2] == "o" \
+        or Board [x+1][y] == "o" and Board [x+1][y+1] == "o" and Board [x+1][y+2] == "o" \
+        or Board [x+2][y] == "o" and Board [x+2][y+1] == "o" and Board [x+2][y+2] == "o" \
+        or Board [x][y] == "o" and Board [x+1][y] == "o" and Board [x+2][y] == "o" \
+        or Board [x+1][y] == "o" and Board [x+1][y+1] == "o" and Board [x+1][y+2] == "o" \
+        or Board [x+2][y] == "o" and Board [x+2][y+1] == "o" and Board [x+2][y+2] == "o":
         print('Bravoooo')
         return True
     else:
-        print('Play')
         return False 
 
 # When Patt 
@@ -108,8 +125,10 @@ def Fillout_p2(x ,y):
 
 def Is_it_end():
     # TODO - add a flowchart / logic
-    Patt (x,y)
-    end_of_the_game_WIN (x,y)
+    if Patt (x,y) or end_of_the_game_WIN (x,y):
+        return True
+    else:
+        return False
 
 def setup():
     get_player_name1()
@@ -129,10 +148,26 @@ def test_drawing_board():
     p[1][1] = "X"
     draw_the_board(p)
 
+def test_Is_it_end():
+    global Board 
+    Board = [
+        [" ", " ", " "],
+        [" ", " ", " "],
+        [" ", " ", " "]
+    ]
+
+    print(Is_it_end ())
+    Board = [
+        ["x", "x", "x"],
+        [" ", " ", " "],
+        [" ", " ", " "]
+    ]
+
+    print(Is_it_end ())
 
 def test():
     test_drawing_board()
-
+    test_Is_it_end()
     print(get_player_position1())
     print(get_player_position2())
     print(Is_it_good_move(1,1))
