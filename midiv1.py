@@ -26,25 +26,27 @@ def connect_to_device():
                 midi_port = mo.open_port(port_no)
     while True:
         x = input("X or O: <enter>")
+        midi_port.send_message([0x90,119,11])
+
         if x == "X" or x == "x":
             midi_port.send_message([0x90,0,COLOR_X])
             midi_port.send_message([0x90,1,COLOR_X])
             midi_port.send_message([0x90,16,COLOR_X])
             midi_port.send_message([0x90,17,COLOR_X])
         if x == "O" or x == "o":
-            midi_port.send_message([0x90,6,COLOR_O])
-            midi_port.send_message([0x90,7,COLOR_O])
-            midi_port.send_message([0x90,22,COLOR_O])
-            midi_port.send_message([0x90,23,COLOR_O])
+            midi_port.send_message([0x90,0,COLOR_O])
+            midi_port.send_message([0x90,1,COLOR_O])
+            midi_port.send_message([0x90,16,COLOR_O])
+            midi_port.send_message([0x90,17,COLOR_O])
+        midi_port.send_message([0x90,119,28])
 
 def display_launchpad_pixel():
-    midi_port.send_message([0x90,6,28])
-    midi_port.send_message([0x90,7,28])
-    midi_port.send_message([0x90,22,28])
-    midi_port.send_message([0x90,23,28])
+    midi_port.send_message([0x90,6,29])
+    midi_port.send_message([0x90,7,29])
+    midi_port.send_message([0x90,22,29])
+    midi_port.send_message([0x90,23,29])
         #midi_port.send_message(msg, button, color) # 7 and 28 are position and color, taken from the docs
 
-display_launchpad_pixel 
 midi_port = connect_to_device()
 display_launchpad_pixel()
 draw_launchpad_board()
