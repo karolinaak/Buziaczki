@@ -61,22 +61,29 @@ def get_player_position1():
     correct_position = True
     while correct_position:
         player_position1 = input("Player 1 - where do you want to put X:")
-        x, y  = change_int_to_x_y(player_position1)
-        if not Is_it_good_move(x, y):
-            correct_position = False
+        if player_position1.isdigit() and int(player_position1) in range(1,9):
+            x, y  = change_int_to_x_y(player_position1)
+            if not Is_it_good_move(x, y):
+                correct_position = True
+            break
+        else:
+            print("Wrong position. Try again")
             continue
-        return change_int_to_x_y(player_position1)
+    return change_int_to_x_y(player_position1)
 
 def get_player_position2():
     correct_position = True
     while correct_position:
         player_position2 = input("Player 2 - where do you want to put O:")
-        x, y  = change_int_to_x_y(player_position2)
-        if not Is_it_good_move(x, y):
-            correct_position = False
+        if player_position2.isdigit() and int(player_position2) in range(1,9):
+            x, y  = change_int_to_x_y(player_position2)
+            if not Is_it_good_move(x, y):
+                correct_position = True
+            break
+        else:
+            print("Wrong position. Try again")
             continue
-        return change_int_to_x_y(player_position2)
-
+    return change_int_to_x_y(player_position2)
 x=0
 y=0
 # Win - Same elements in one line
