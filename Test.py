@@ -8,7 +8,7 @@ for port_no in range(mo.get_port_count()):
 		if port_name.find('Launchpad Mini')>-1:
 			midi_port = mo.open_port(port_no)
 
-def display_grid():
+def def draw_launchpad_board():
 	midi_port.send_message([0x90, 2, 27])
 	midi_port.send_message([0x90, 5, 27])
 	midi_port.send_message([0x90, 18, 27])
