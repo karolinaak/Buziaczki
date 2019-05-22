@@ -82,11 +82,21 @@ y=0
 # Win - Same elements in one line
 
 def end_of_the_game_WIN (x,y):
-    if Board [x][y] == Board [x][y+1] and Board [x][y] == Board [x][y+2] or Board [x+1][y] == Board [x+1][y+1] and Board [x+1][y] == Board [x+1][y+2] or Board [x+2][y] == Board [x+2][y+1] and Board [x+2][y] == Board [x+2][y+2]:
+    if Board [x][y] == "x" and Board [x][y+1] == "x" and Board [x][y+2] == "x" \
+        or Board [x+1][y] == "x" and Board [x+1][y+1] == "x" and Board [x+1][y+2] == "x" \
+        or Board [x+2][y] == "x" and Board [x+2][y+1] == "x" and Board [x+2][y+2] == "x" \
+        or Board [x][y] == "x" and Board [x+1][y] == "x" and Board [x+2][y] == "x" \
+        or Board [x+1][y] == "x" and Board [x+1][y+1] == "x" and Board [x+1][y+2] == "x" \
+        or Board [x+2][y] == "x" and Board [x+2][y+1] == "x" and Board [x+2][y+2] == "x" \
+        or Board [x][y] == "o" and Board [x][y+1] == "o" and Board [x][y+2] == "o" \
+        or Board [x+1][y] == "o" and Board [x+1][y+1] == "o" and Board [x+1][y+2] == "o" \
+        or Board [x+2][y] == "o" and Board [x+2][y+1] == "o" and Board [x+2][y+2] == "o" \
+        or Board [x][y] == "o" and Board [x+1][y] == "o" and Board [x+2][y] == "o" \
+        or Board [x+1][y] == "o" and Board [x+1][y+1] == "o" and Board [x+1][y+2] == "o" \
+        or Board [x+2][y] == "o" and Board [x+2][y+1] == "o" and Board [x+2][y+2] == "o":
         print('Bravoooo')
         return True
     else:
-        print('Play')
         return False 
 
 # When Patt 
@@ -109,9 +119,9 @@ def Fillout_p2(x ,y):
 def Is_it_end():
     # TODO - add a flowchart / logic
     if Patt (x,y) or end_of_the_game_WIN (x,y):
-    return True
+        return True
     else:
-    return False
+        return False
 
 def setup():
     get_player_name1()
@@ -131,18 +141,26 @@ def test_drawing_board():
     p[1][1] = "X"
     draw_the_board(p)
 
-def test Is_it_end():
-    p = [
+def test_Is_it_end():
+    global Board 
+    Board = [
         [" ", " ", " "],
         [" ", " ", " "],
         [" ", " ", " "]
     ]
-    print(Is_it_end ())
 
+    print(Is_it_end ())
+    Board = [
+        ["x", "x", "x"],
+        [" ", " ", " "],
+        [" ", " ", " "]
+    ]
+
+    print(Is_it_end ())
 
 def test():
     test_drawing_board()
-
+    test_Is_it_end()
     print(get_player_position1())
     print(get_player_position2())
     print(Is_it_good_move(1,1))
