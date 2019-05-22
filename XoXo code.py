@@ -1,8 +1,8 @@
 # https://docs.google.com/spreadsheets/d/1uQEFB-bPmcBykrD_ulPELHtcM8nPYGAB8XqgaCApPhI/edit#gid=0
 p = [
-    ["" "","" "","" ""],
-    ["" "","" "","" ""],
-    ["" "","" "","" ""]
+    [" "," "," "],
+    [" "," "," "],
+    [" "," "," "]
     ]
 
 Board = [
