@@ -47,6 +47,7 @@ def display_launchpad_pixel():
 display_launchpad_pixel 
 midi_port = connect_to_device()
 display_launchpad_pixel()
+draw_launchpad_board()
 #display_X(midi_port)
 
 
