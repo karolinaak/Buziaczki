@@ -1,4 +1,6 @@
+# https://github.com/maciejjankowski/launchpad-mini-starter
 # https://global.novationmusic.com/support/downloads/launchpad-programmers-reference-guide
+
 import rtmidi
 
 COLOR_X = <something>
