@@ -1,13 +1,14 @@
-# https://github.com/maciejjankowski/launchpad-mini-starter
-# https://global.novationmusic.com/support/downloads/launchpad-programmers-reference-guide
-
-COLOR_X = 15
-COLOR_O = 28
-
 import time
 import rtmidi
 
-def draw_launchpad_board():
+mo = rtmidi.MidiOut()
+for port_no in range(mo.get_port_count()):
+		port_name = mo.get_port_name(port_no)
+		print("MIDI out:", port_name)
+		if port_name.find('Launchpad Mini')>-1:
+			midi_port = mo.open_port(port_no)
+
+def def draw_launchpad_board():
 	midi_port.send_message([0x90, 2, 27])
 	midi_port.send_message([0x90, 5, 27])
 	midi_port.send_message([0x90, 18, 27])
