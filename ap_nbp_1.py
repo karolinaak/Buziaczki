@@ -1,6 +1,7 @@
 import requests
 
 resp = requests.get("http://api.nbp.pl/api/exchangerates/rates/a/gbp/last/10/?format=json")
+#resp = requests.get("http://api.nbp.pl/api/exchangerates/tables/a/today/")
 result = resp.json()
 #print(result)
 def show_me_gbp():
