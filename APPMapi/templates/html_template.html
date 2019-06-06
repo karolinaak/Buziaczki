@@ -1,4 +1,4 @@
-s<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   
 <head>
@@ -12,7 +12,6 @@ s<!DOCTYPE html>
       h1 {
         font-size: 20pt
       }
-    
       table {
       table-layout: fixed;
       width: 100%;
@@ -20,74 +19,55 @@ s<!DOCTYPE html>
       border: 3px solid blue;
       text-align: center;
     }
-
     thead th:nth-child(1) {
       width: 20%;
       text-align: left;
     }
-
     thead th:nth-child(2) {
       width: 20%;
     }
-
     thead th:nth-child(3) {
       width: 20%;
     }
-
     thead th:nth-child(4) {
       width: 20%;
     }
-
     th, td {
       padding: 10px;
       text-align: center;
     }
-
-
-
       }
   </style>
 <h1>
-  Kurs walut
+  Kurs walut {{name.code}}
 </h1>
-  <button type="button">CHF</button>
-  <button type="button">GBP</button>
-  <button type="button">USD</button>
+<input type="button" onclick="window.location.href = 'http://127.0.0.1:5000/chf10';" value="CHF"/>
+<input type="button" onclick="window.location.href = 'http://127.0.0.1:5000/gbp10';" value="GBP"/>
+<input type="button" onclick="window.location.href = 'http://127.0.0.1:5000/usd10';" value="USD"/>
+
 
   <table>
   <thead>
     <tr>
-      <th scope="col">no</th>
+      <th scope="col">Note</th>
       <th scope="col">Currency</th>
-      <th scope="col">Bid</th>
-      <th scope="col">Ask</th>
+      <th scope="col">Mid</th>
+      <th scope="col">Date</th>
     </tr>
   </thead>
   <tbody>
+  {% for elem in name.rates -%}
     <tr>
-      <th scope="row">099/A/NBP/2019 </th>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <th scope="row">{{elem['no']}} </th>
+      <td>{{name.code}}</td>
+      <td>{{elem['mid']}}</td>
+      <td>{{elem['effectiveDate']}}</td>
     </tr>
-    <tr>
-      <th scope="row">100/A/NBP/2019 </th>
-      <td>2</td>
-      <td>2</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th scope="row">101/A/NBP/2019 </th>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-    </tr>
+    {% endfor %}
   </tbody>
   <tfoot>
-
   </tfoot>
-</table>
-  
+</table> 
   
 </body>
 </html>
