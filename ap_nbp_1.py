@@ -1,5 +1,5 @@
 import requests
-
+import flask
 resp = requests.get("http://api.nbp.pl/api/exchangerates/rates/a/gbp/last/10/?format=json")
 #resp = requests.get("http://api.nbp.pl/api/exchangerates/tables/a/today/")
 result = resp.json()
@@ -12,3 +12,4 @@ def show_me_gbp():
         index = index + 1
 
 show_me_gbp()
+
