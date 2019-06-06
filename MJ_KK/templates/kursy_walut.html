@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Obernews</title>
+</head>
+  
+<body>
+    <style>
+      .signature::before{
+        content: "Wasz do bolu ";
+        margin-right: 0.5em;
+        color: salmon;
+      }
+      
+      .signature {
+        font-weight: bold;
+        font-style: italic;
+        margin-left: 2em;
+
+      }
+  </style>
+<h1>
+  Kursy walut
+  <H2>
+    <a href="https://www.nbp.pl/home.aspx?navid=wykresy&c=/ascx/wykresy2.ascx&cc=USD"><img src="file:///C:\Users\t420\Buziaczki\MJ_KK\static\dolar" alt="USD" /></a>
+    <a href="https://www.nbp.pl/home.aspx?navid=wykresy&c=/ascx/wykresy2.ascx&cc=EUR"><img src="C:\Users\t420\Buziaczki\MJ_KK\static\euro" alt="EUR" /></a>
+    <a href="https://www.nbp.pl/home.aspx?navid=wykresy&c=/ascx/wykresy2.ascx&cc=GBP"><img src="C:\Users\t420\Buziaczki\MJ_KK\static\funt.jpg" alt="GBP" /></a>
+    <table>
+      <tr>
+        <td> {{ kursy ["rates"] [0]['ask'] }}</td>
+        <td> USD {{kursy["rates"][0]['bid']}}</td>
+      </tr>
+      </table>
+
+
