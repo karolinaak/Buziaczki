@@ -25,9 +25,14 @@ def connect_to_device():
                 # or 'Launchpad Pro Standalone Port'
                 midi_port = mo.open_port(port_no)
     while True:
-        x = input("X or O: <enter>")
-        midi_port.send_message([0x90,119,11])
-
+        #x = input("X or O: <enter>")
+        #TODOnot finished
+        zm = range(1,30)
+        mindex = mindex+1
+        color = zm[mindex]
+        pos = range(1,6)
+        midi_port.send_message([0x90,119,color])
+"""
         if x == "X" or x == "x":
             midi_port.send_message([0x90,0,COLOR_X])
             midi_port.send_message([0x90,1,COLOR_X])
@@ -39,7 +44,7 @@ def connect_to_device():
             midi_port.send_message([0x90,16,COLOR_O])
             midi_port.send_message([0x90,17,COLOR_O])
         midi_port.send_message([0x90,119,28])
-
+"""
 def display_launchpad_pixel():
     midi_port.send_message([0x90,6,29])
     midi_port.send_message([0x90,7,29])

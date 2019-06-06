@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>NBP rates sample page api</title>
+</head>
+  
+<body>
+    <style>
+      h1 {
+        font-size: 20pt
+      }
+      table {
+      table-layout: fixed;
+      width: 100%;
+      border-collapse: collapse;
+      border: 3px solid blue;
+      text-align: center;
+    }
+    thead th:nth-child(1) {
+      width: 20%;
+      text-align: left;
+    }
+    thead th:nth-child(2) {
+      width: 20%;
+    }
+    thead th:nth-child(3) {
+      width: 20%;
+    }
+    thead th:nth-child(4) {
+      width: 20%;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+      }
+  </style>
+<h1>
+  Kurs walut {{name.code}}
+</h1>
+<input type="button" onclick="window.location.href = 'http://127.0.0.1:5000/chf10';" value="CHF"/>
+<input type="button" onclick="window.location.href = 'http://127.0.0.1:5000/gbp10';" value="GBP"/>
+<input type="button" onclick="window.location.href = 'http://127.0.0.1:5000/usd10';" value="USD"/>
+
+
+  <table>
+  <thead>
+    <tr>
+      <th scope="col">Note</th>
+      <th scope="col">Currency</th>
+      <th scope="col">Mid</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for elem in name.rates -%}
+    <tr>
+      <th scope="row">{{elem['no']}} </th>
+      <td>{{name.code}}</td>
+      <td>{{elem['mid']}}</td>
+      <td>{{elem['effectiveDate']}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  <tfoot>
+  </tfoot>
+</table> 
+  
+</body>
+</html>
